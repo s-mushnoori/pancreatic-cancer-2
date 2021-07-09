@@ -1,37 +1,37 @@
 # pancreatic-cancer-2
 Can biomarkers from a urine  sample detect pancreatic cancer?
 
-# Problem Statement:
+## Problem Statement:
 
 
-# Purpose:
+## Purpose:
 
 
-# Data
+## Data
 **Debernardi et al 2020 data.csv:** asdasda.
 
 (Add feature descriptions here)
 
 
-# Data Cleaning and EDA: 
+## Data Cleaning and EDA: 
 
 
-# Classification Models:
+## Classification Models:
 
 Why recall is the metric we want to track. 
 
 (Table of recall scores for different models)
 
-# Optional Feature Selection:
+## Optional Feature Selection:
 
 
-# Hyperparameter Tuning:
+## Hyperparameter Tuning:
 
 
-# Results:
+## Results:
 
 
-# Other Considerations:
+## Other Considerations:
 
 
-# Conclusions:
+## Conclusions:
