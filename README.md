@@ -164,8 +164,11 @@ Confusion Matrix (Benign vs. Stage I/II Cancer):
 
 |Metric|Final Score|
 |:--|:--:|
-|Recall|%|
-|F1 Score|%|
-|Accuracy|%|
+|Recall|48.4%|
+|F1 Score|54.5%|
+|Accuracy|73.1%|
+
+Again we see that the model cannot distinguish between bengin samples and early stage cancer samples. 
 
 ## Conclusions:
+
