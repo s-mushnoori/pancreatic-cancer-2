@@ -40,6 +40,7 @@ Based on the plot and an understanding of the project goals, the following decis
 
 - Since the purpose of this project is to use the urinary levels of certain biomarkers to detect presence of PDAC. This means we are not concerned (for now) with the stage of cancer or the type of benign disease.
   - _Create a new output variable called 'has_cancer'_ with values 0 (no) and 1 (yes) using information from the columns 'diagnosis', 'stage', and 'benign_sample_diagnosis'
+  - In later parts of the analysis, we will take the stages into account and compare early stages with  benign  or control samples
 
 - The column 'plasma_CA19_9' indicates blood plasma levels of a protein, and was only collected for some of the patients.
   - _Drop 'plasma_CA19_9'_ since we are only interested in urine biomarkers
@@ -54,7 +55,8 @@ Based on the plot and an understanding of the project goals, the following decis
   - _Drop sample_origin_
 
 - The column 'sex' is categorical, with two values M and F.
-  - _Convert to dummy variable_ for one of the genders
+  - _Convert to dummy variables_ and drop one. This is done to avoid _multicolinearity_ between two features, where the value of one feature is highly correlated to another (in this case, 'Male' perfectly predicts 'Female')
+
 
 The function `clean_data` performs the cleaning operations and has an optional  argument _cohort_ to take into account the different cohorts that will be tested in this analysis.
 
@@ -63,12 +65,36 @@ A pairplot showed a positive correlation between age and having cancer, but this
 Frequency distributions show most of the data for biomarker levels are right-skewed.
 
 ## Classification Models:
-Why recall is the metric we want to track. 
+When measuring the performance of a machine learning model, the accuracy score is a quick and easy tool to compare different models. Accuracy is the number of correct predictions divided by the total number of predictions. However, in the case of medical diagnoses, the accuracy is not always important. A more important question to ask is:
 
-(Table of recall scores for different models)
+**Of all the disease samples, how many can the model correctly identify as positive?**
+This question is answered by the metric _recall_. Recall is defined as the number of true positives divided  by the sum of true positives and false negatives. In other words, a high recall score minimises the number of false negatives. 
+
+Recall = TP / (TP + FN)
+
+This is important in medical diagnoses because the cost of flasely classifying a disease sample as no-disease (false negative) is very high. 
+
+Another metric, the _F1 score_ is the harmonic mean of _recall_ and _precision_, which gives a  measure of overall performance.
+
+First, a train-test split was performed to create an 'unseen' dataset for final validation of the selected model. Next, 4 machine learning algorithms were used to classify the samples. A function `get_results` was made to take the dataset, labels, and pipelines for the algorithms as arguments.  `RepeatedStratifiedKFold` was used to perform stratified 10-fold cross validation with 5 repetitions. The mean accuracy, recall and F1 scores were calculated for all 4 models. The results are summarized in the table below: 
+
+|Model|Recall|F1 Score|Accuracy|
+|:--|:--:|:--:|:--:|
+|Logistic Regression|61.1%|66.7%|80%|
+|Random Forest|63.9%|69.9%|81.4%|
+|Support Vector Machines|61.7%|68.4%|81.7%|
+|k-Nearest Neighbors|62.6%|66.1%|78.9%|
+
+The exact scores will differ with each run of the code, but random forest had the highest recall most often, and was thus chosen as the classification model. 
 
 ## Optional Feature Selection:
-Correlation heatmaps showed some features weakly correlated to cancer, but dropping these features did not improve the results to statistical significance. In fact, in most runs, the results worsened when these features were dropped, but the changes were statistically insignificant. 
+A correlation heatmap showed some features weakly correlated to cancer. The heatmap below shows these correlations:
+
+![heatmap](https://github.com/s-mushnoori/pancreatic-cancer-2/blob/main/Figures/corr.PNG)
+
+Creatinine levels were very weakly correlated with _has_cancer_. Sex (M) also had a relatively weak correlation.
+
+Ultimately however, dropping these features did not improve the results to statistical significance. In fact, in most runs, the results worsened when these features were dropped (again, statistically insignificant). It was decided to leave these two features in for the final evaluation. 
 
 ## Hyperparameter Tuning:
 
