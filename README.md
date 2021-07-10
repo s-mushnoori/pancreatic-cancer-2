@@ -172,3 +172,4 @@ Again we see that the model cannot distinguish between bengin samples and early 
 
 ## Conclusions:
 
+This project demonstrates that there exist minimally invasive diagnostic processes that can aid in the early detection of PDAC. Such tools can be developed, not with the purpose of definitively diagnosing cancer, but rather, to identify patients for further tests and evaluation. Since completely healthy control samples are distinctly different from benign or malignant hepatobiliary disease, and considering that some benign diseases can be precursors to PDAC, the use of models like this one should be used as the primary line of defense against deadly cancers, in the form of routine or annual checkups in high-risk populations. 
