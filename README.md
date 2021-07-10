@@ -160,7 +160,7 @@ This leads us to the final question we will look at: Can we distinguish between 
 
 Confusion Matrix (Benign vs. Stage I/II Cancer):
 
-![fig3](https://github.com/s-mushnoori/pancreatic-cancer-2/blob/main/Figures/Fig%204.png)
+![fig4](https://github.com/s-mushnoori/pancreatic-cancer-2/blob/main/Figures/Fig%204.png)
 
 |Metric|Final Score|
 |:--|:--:|
