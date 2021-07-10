@@ -70,7 +70,7 @@ When measuring the performance of a machine learning model, the accuracy score i
 **Of all the disease samples, how many can the model correctly identify as positive?**
 This question is answered by the metric _recall_. Recall is defined as the number of true positives divided  by the sum of true positives and false negatives. In other words, a high recall score minimises the number of false negatives. 
 
-Recall = TP / (TP + FN)
+**Recall = TP / (TP + FN)**
 
 This is important in medical diagnoses because the cost of flasely classifying a disease sample as no-disease (false negative) is very high. 
 
@@ -97,9 +97,22 @@ Creatinine levels were very weakly correlated with _has_cancer_. Sex (M) also ha
 Ultimately however, dropping these features did not improve the results to statistical significance. In fact, in most runs, the results worsened when these features were dropped (again, statistically insignificant). It was decided to leave these two features in for the final evaluation. 
 
 ## Hyperparameter Tuning:
-
+Having selected the final algorithm and set of features, we can perform hyperparameter tuning to optimize the model. A function `tune_hyperparameters` was created to perform 5-fold cross validation with different combinations of hyperparameters using `RandomizedSearchCV`.
 
 ## Results:
+Below are the results for the final evaluation on the 'unseen' dataset we created earlier through the train-test split. 
+
+Confusion Matrix (Cancer vs. No Cancer):
+
+![fig1](https://github.com/s-mushnoori/pancreatic-cancer-2/blob/main/Figures/Fig%201.png)
+
+The final scores were:
+
+|Metric|Final Score|
+|:--|:--:|
+|Recall|83.3%|
+|F1 Score|75.2%|
+|Accuracy|81.4%|
 
 
 ## Other Considerations:
