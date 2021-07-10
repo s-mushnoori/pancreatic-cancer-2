@@ -114,8 +114,58 @@ The final scores were:
 |F1 Score|75.2%|
 |Accuracy|81.4%|
 
+This test set had 177 total samples. Of the 60 cancer samples, the model correctly identified 50 samples (i.e. a recall score of 83.3%). This is a great result!
 
 ## Other Considerations:
 
+#### No Cancer vs. Stage I/II Cancer samples
+
+Note that the original goal of this project is to determine the utility of urine anlaysis in the _early_ detection of cancer. This means that we should also investigate the results when we remove all samples with stage III and IV cancer from the dataset. Now the dataset contains samples with no disease or benign disease as 'no cancer' and stage I and II PDAC samples as 'cancer'. 
+
+The results are shown below:
+
+Confusion Matrix (Stage I/II Cancer vs. No Cancer):
+
+![fig2](https://github.com/s-mushnoori/pancreatic-cancer-2/blob/main/Figures/Fig%202.png)
+
+|Metric|Final Score|
+|:--|:--:|
+|Recall|45.2%|
+|F1 Score|58.3%|
+|Accuracy|86.5%|
+
+These are terrible results! This can indicate two points:
+- The late stage cancer samples are significantly different from early stage cancers
+- Control samples and benign samples may be similar enough to reduce the predictive power of the model
+
+#### Control vs. Benign samples
+
+To test this, we can only compare Control (no disease) and Benign samples and ignore the cancer samples for the time being. 
+
+Confusion Matrix (Control vs. Benign):
+
+![fig3](https://github.com/s-mushnoori/pancreatic-cancer-2/blob/main/Figures/Fig%203.png)
+
+|Metric|Final Score|
+|:--|:--:|
+|Recall|73%|
+|F1 Score|75.4%|
+|Accuracy|74.6%|
+
+This is quite a good recall score. This is great news, since we now know that the model can reasonably distinguish between control and benign disease. Since some benign hepatobiliary disease are risk factors for PDAC, this could be a step forward in early detection of PDAC.
+
+#### Benign vs. Stage I/II Cancer samples
+
+This leads us to the final question we will look at: Can we distinguish between bengin and early stage cancers?
+
+Confusion Matrix (Benign vs. Stage I/II Cancer):
+
+![fig3](https://github.com/s-mushnoori/pancreatic-cancer-2/blob/main/Figures/Fig%204.png)
+
+|Metric|Final Score|
+|:--|:--:|
+|Recall|%|
+|F1 Score|%|
+|Accuracy|%|
 
 ## Conclusions:
