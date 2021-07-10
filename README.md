@@ -102,6 +102,9 @@ Having selected the final algorithm and set of features, we can perform hyperpar
 ## Results:
 Below are the results for the final evaluation on the 'unseen' dataset we created earlier through the train-test split. 
 
+![cohort1](https://github.com/s-mushnoori/pancreatic-cancer-2/blob/main/Figures/Cohort%201.png)
+
+
 Confusion Matrix (Cancer vs. No Cancer):
 
 ![fig1](https://github.com/s-mushnoori/pancreatic-cancer-2/blob/main/Figures/Fig%201.png)
@@ -119,10 +122,12 @@ This test set had 177 total samples. Of the 60 cancer samples, the model correct
 ## Other Considerations:
 
 #### No Cancer vs. Stage I/II Cancer samples
-
 Note that the original goal of this project is to determine the utility of urine anlaysis in the _early_ detection of cancer. This means that we should also investigate the results when we remove all samples with stage III and IV cancer from the dataset. Now the dataset contains samples with no disease or benign disease as 'no cancer' and stage I and II PDAC samples as 'cancer'. 
 
 The results are shown below:
+
+![cohort2](https://github.com/s-mushnoori/pancreatic-cancer-2/blob/main/Figures/Cohort%202.png)
+
 
 Confusion Matrix (Stage I/II Cancer vs. No Cancer):
 
@@ -142,6 +147,9 @@ These are terrible results! This can indicate two points:
 
 To test this, we can only compare Control (no disease) and Benign samples and ignore the cancer samples for the time being. 
 
+![cohort3](https://github.com/s-mushnoori/pancreatic-cancer-2/blob/main/Figures/Cohort%204.png)
+
+
 Confusion Matrix (Control vs. Benign):
 
 ![fig3](https://github.com/s-mushnoori/pancreatic-cancer-2/blob/main/Figures/Fig%203.png)
@@ -157,6 +165,9 @@ This is quite a good recall score. This is great news, since we now know that th
 #### Benign vs. Stage I/II Cancer samples
 
 This leads us to the final question we will look at: Can we distinguish between bengin and early stage cancers?
+
+![cohort4](https://github.com/s-mushnoori/pancreatic-cancer-2/blob/main/Figures/Cohort%203.png)
+
 
 Confusion Matrix (Benign vs. Stage I/II Cancer):
 
