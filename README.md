@@ -78,12 +78,12 @@ Another metric, the _F1 score_ is the harmonic mean of _recall_ and _precision_,
 
 First, a train-test split was performed to create an 'unseen' dataset for final validation of the selected model. Next, 4 machine learning algorithms were used to classify the samples. A function `get_results` was made to take the dataset, labels, and pipelines for the algorithms as arguments.  `RepeatedStratifiedKFold` was used to perform stratified 10-fold cross validation with 5 repetitions. The mean accuracy, recall and F1 scores were calculated for all 4 models. The results are summarized in the table below: 
 
-|Model|Recall|F1 Score|Accuracy|
+|Model|Mean Recall|Mean F1 Score|Mean Accuracy|
 |:--|:--:|:--:|:--:|
-|Logistic Regression|61.1%|66.7%|80%|
-|Random Forest|63.9%|69.9%|81.4%|
-|Support Vector Machines|61.7%|68.4%|81.7%|
-|k-Nearest Neighbors|62.6%|66.1%|78.9%|
+|Logistic Regression|61.1%  (+/-11.8%)|66.7%  (+/-9.8%)|80%  (+/-5.3%)|
+|Random Forest|63.9%  (+/-12.2%)|69.9%  (+/-9.8%)|81.4%  (+/-5.6%)|
+|Support Vector Machines|61.7%  (+/-11.3%)|68.4%  (+/-9.8%)|81.7%  (+/-5.1%)|
+|k-Nearest Neighbors|62.6%  (+/-12.4%)|66.1%  (+/-11.4%)|78.9%  (+/-5.4%)|
 
 The exact scores will differ with each run of the code, but random forest had the highest recall most often, and was thus chosen as the classification model. 
 
