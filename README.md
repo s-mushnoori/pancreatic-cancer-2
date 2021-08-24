@@ -113,11 +113,11 @@ The final scores were:
 
 |Metric|Final Score|
 |:--|:--:|
-|Recall|83.3%|
-|F1 Score|75.2%|
-|Accuracy|81.4%|
+|Recall|75%|
+|F1 Score|74.4%|
+|Accuracy|82.5%|
 
-This test set had 177 total samples. Of the 60 cancer samples, the model correctly identified 50 samples (i.e. a recall score of 83.3%). This is a great result!
+This test set had 177 total samples. Of the 60 cancer samples, the model correctly identified 45 samples (i.e. a recall score of 75%). This is a great result!
 
 ## Other Considerations:
 
@@ -135,9 +135,9 @@ Confusion Matrix (Stage I/II Cancer vs. No Cancer):
 
 |Metric|Final Score|
 |:--|:--:|
-|Recall|45.2%|
-|F1 Score|58.3%|
-|Accuracy|86.5%|
+|Recall|32.3%|
+|F1 Score|40%|
+|Accuracy|79.7%|
 
 These are terrible results! This can indicate two points:
 - The late stage cancer samples are significantly different from early stage cancers
@@ -156,9 +156,9 @@ Confusion Matrix (Control vs. Benign):
 
 |Metric|Final Score|
 |:--|:--:|
-|Recall|73%|
-|F1 Score|75.4%|
-|Accuracy|74.6%|
+|Recall|68.3%|
+|F1 Score|66.7%|
+|Accuracy|63.6%|
 
 This is quite a good recall score. This is great news, since we now know that the model can reasonably distinguish between control and benign disease. Since some benign hepatobiliary disease are risk factors for PDAC, this could be a step forward in early detection of PDAC.
 
@@ -175,8 +175,8 @@ Confusion Matrix (Benign vs. Stage I/II Cancer):
 
 |Metric|Final Score|
 |:--|:--:|
-|Recall|48.4%|
-|F1 Score|54.5%|
+|Recall|64.5%|
+|F1 Score|61.5%|
 |Accuracy|73.1%|
 
 Again we see that the model cannot distinguish between bengin samples and early stage cancer samples. 
